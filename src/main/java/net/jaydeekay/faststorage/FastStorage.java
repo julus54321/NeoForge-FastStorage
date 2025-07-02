@@ -34,8 +34,10 @@ public class FastStorage {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        ModItems.register(modEventBus);
+
         NeoForge.EVENT_BUS.register(this);
+        ModItems.register(modEventBus);
+        LOGGER.info("Silicon item registered as: {}", ModItems.SILICON.getId());
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

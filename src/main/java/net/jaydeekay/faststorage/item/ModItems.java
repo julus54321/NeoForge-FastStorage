@@ -13,7 +13,7 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(FastStorage.MOD_ID);
 
     //public static final DeferredItem<Item> SILICON = ITEMS.register("silicon",
-    //    () -> new Item(new Item.Properties().stacksTo(64)));
+    //   () -> new Item(new Item.Properties()));
 
     // kocham kiedy czarno fioletowy blok
     public static final DeferredItem<Item> SILICON = ITEMS.register("silicon", () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(
