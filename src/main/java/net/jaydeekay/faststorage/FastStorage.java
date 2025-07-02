@@ -1,5 +1,6 @@
 package net.jaydeekay.faststorage;
 
+import net.jaydeekay.faststorage.block.ModBlocks;
 import net.jaydeekay.faststorage.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -37,7 +38,7 @@ public class FastStorage {
 
         NeoForge.EVENT_BUS.register(this);
         ModItems.register(modEventBus);
-        LOGGER.info("Silicon item registered as: {}", ModItems.SILICON.getId());
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -54,6 +55,9 @@ public class FastStorage {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SILICON.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.QUANTUM_ORE.get());
         }
     }
 

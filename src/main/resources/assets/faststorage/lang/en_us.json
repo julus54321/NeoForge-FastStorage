@@ -1,3 +1,5 @@
 {
-  "item.faststorage.silicon": "Silicon"
+  "item.faststorage.silicon": "Silicon",
+
+  "block.faststorage.quantum_ore": "Quantum Ore"
 }
