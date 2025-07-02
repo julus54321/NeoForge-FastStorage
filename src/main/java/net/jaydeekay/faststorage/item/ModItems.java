@@ -15,6 +15,7 @@ public class ModItems {
     //public static final DeferredItem<Item> SILICON = ITEMS.register("silicon",
     //    () -> new Item(new Item.Properties().stacksTo(64)));
 
+    // kocham kiedy czarno fioletowy blok
     public static final DeferredItem<Item> SILICON = ITEMS.register("silicon", () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(
         ResourceKey.create(Registries.ITEM, ResourceLocation.parse("faststorage:silicon")))));
 
