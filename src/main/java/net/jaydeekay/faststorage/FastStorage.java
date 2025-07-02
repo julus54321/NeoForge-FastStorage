@@ -1,5 +1,7 @@
 package net.jaydeekay.faststorage;
 
+import net.jaydeekay.faststorage.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.slf4j.Logger;
@@ -32,9 +34,7 @@ public class FastStorage {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+        ModItems.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
@@ -50,6 +50,9 @@ public class FastStorage {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SILICON.get());
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
